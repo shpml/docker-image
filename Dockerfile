@@ -1,9 +1,9 @@
 ARG DEBIAN_IMAGE=debian:stable-slim
-ARG JEMALLOC_VERSION="5.0.0"
 # Build jemalloc on debian, to copy later.
 FROM ${DEBIAN_IMAGE}
 WORKDIR /tmp
 
+ARG JEMALLOC_VERSION
 ENV JEMALLOC_VERSION=${JEMALLOC_VERSION}
 
 RUN apt-get update -qq && apt-get install build-essential curl -qq -y &&\
