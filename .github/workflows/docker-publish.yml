@@ -6,8 +6,19 @@ name: Docker
 # documentation.
 
 on:
-#   schedule:
-#     - cron: '15 14 * * *'
+  # Trigger the workflow on push or pull request,
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  schedule:
+            # ┌───────────── minute (0 - 59)
+            # │ ┌───────────── hour (0 - 23)
+            # │ │ ┌───────────── day of the month (1 - 31)
+            # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+            # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+            # │ │ │ │ │
+            # │ │ │ │ │
+            # │ │ │ │ │
+            # * * * * *
+    - cron: '15 14 1 1 *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -26,6 +37,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      JEMALLOC_VERSION: "5.3.0"
     permissions:
       contents: read
       packages: write
@@ -34,6 +47,9 @@ jobs:
       id-token: write
 
     steps:
+      - name: "JEMALLOC_VERSION"
+        run: echo "JEMALLOC_VERSION = $JEMALLOC_VERSION"
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -75,7 +91,7 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
-            type=sha,format=long,priority=9999       
+            type=sha,format=long,priority=9999
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
