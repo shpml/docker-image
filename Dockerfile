@@ -1,5 +1,5 @@
 ARG DEBIAN_IMAGE=debian:stable-slim
-JEMALLOC_VERSION="5.0.0"
+ARG JEMALLOC_VERSION="5.0.0"
 # Build jemalloc on debian, to copy later.
 FROM ${DEBIAN_IMAGE}
 WORKDIR /tmp
