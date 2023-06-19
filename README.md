@@ -1,8 +1,8 @@
 # jemalloc-docker-iamge
 
-Jemalloc Docker Image used to copy compiled jemalloc to another image.
+[Jemalloc](https://github.com/jemalloc/jemalloc/blob/dev/COPYING) Docker Image used to copy compiled jemalloc to another container image.
 
-## Usage ##
+## Usage
 
 ```dockerfile
 ARG BASE_IMAGE=ruby:3.2.2
