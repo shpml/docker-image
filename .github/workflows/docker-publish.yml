@@ -32,7 +32,7 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-run-name: 🤖 Build ${{ env.IMAGE_NAME }} docker image by @${{ github.actor }} with ${{ github.event.schedule }}
+run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }} with ${{ github.event.schedule }}
 
 jobs:
   Explore-GitHub-Actions:
