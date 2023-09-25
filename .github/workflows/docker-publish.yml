@@ -128,7 +128,6 @@ jobs:
             "DEBIAN_IMAGE=debian:stable-slim"
             "JEMALLOC_VERSION=${{ env.JEMALLOC_VERSION }}"
 
-
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
@@ -141,3 +140,13 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+
+  prod-deployment:
+    name: Deploys to productin 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: deploy
+        run: |
+            ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
