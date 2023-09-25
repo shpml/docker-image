@@ -141,12 +141,12 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
-  prod-deployment:
-    name: Deploys to production 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
-    runs-on: ubuntu-latest
-    environment: prod
-    steps:
-      - name: deploy
-        run: |
-            ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+#   prod-deployment:
+#     name: Deploys to production 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
+#     runs-on: ubuntu-latest
+#     environment: prod
+#     steps:
+#       - name: deploy
+#         run: |
+#             ls ${{ github.workspace }}
+#       - run: echo "🍏 This job's status is ${{ job.status }}."
