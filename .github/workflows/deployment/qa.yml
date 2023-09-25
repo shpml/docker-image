@@ -1,0 +1,22 @@
+name: Deploy to QA
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation. Trigger?
+
+on:
+  push:
+    branches: [ "main" ]
+
+run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }}
+
+jobs:
+  prod-deployment:
+    name: Deploys to qa 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
+    runs-on: ubuntu-latest
+    environment: qa
+    steps:
+      - name: QA deploy
+        run: |
+            ls ${{ github.workspace }}
+      - run: echo "🍏 @${{ github.actor }} This job's status is ${{ job.status }}."
