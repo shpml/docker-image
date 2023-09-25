@@ -1,46 +1,22 @@
-name: Docker Build and Publish
-
+name: Deploy to QA
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation. Trigger?
 
 on:
-  # Trigger the workflow on push or pull request,
-  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
-  schedule:
-            # ┌───────────── minute (0 - 59)
-            # │ ┌───────────── hour (0 - 23)
-            # │ │ ┌───────────── day of the month (1 - 31)
-            # │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-            # │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-            # │ │ │ │ │
-            # │ │ │ │ │
-            # │ │ │ │ │
-            # * * * * *
-    - cron: '15 14 1 1 *'
   push:
     branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "main" ]
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
-
-run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }} with ${{ github.event.schedule }}
+run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }}
 
 jobs:
   prod-deployment:
-    name: Deploys to QA 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
+    name: Deploys to qa 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
     runs-on: ubuntu-latest
     environment: qa
     steps:
       - name: QA deploy
         run: |
             ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🍏 @${{ github.actor }} This job's status is ${{ job.status }}."

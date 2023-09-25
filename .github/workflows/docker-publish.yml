@@ -142,7 +142,7 @@ jobs:
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
   prod-deployment:
-    name: Deploys to productin 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
+    name: Deploys to production 🚀, 💻, 🤖, 📦, 📝, 🧪, 🧑‍💻, 🌐, 📊, 🎉.
     runs-on: ubuntu-latest
     environment: prod
     steps:
