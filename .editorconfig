@@ -1,0 +1,36 @@
+# EditorConfig is awesome: http://EditorConfig.org
+# Uses editorconfig to maintain consistent coding styles
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+max_line_length = 80
+trim_trailing_whitespace = true
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+# Override for Makefile
+[{Makefile, makefile, GNUmakefile, Makefile.*}]
+indent_style = tab
+indent_size = 4
+
+[*.yaml]
+intent_style = space
+indent_size = 2
+
+[*.sh]
+indent_style = tab
+indent_size = 4
+
+[*.{tf,tfvars,tpl}]
+indent_size = 2
+indent_style = space

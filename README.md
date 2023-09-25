@@ -1,5 +1,7 @@
 # jemalloc-docker-iamge
 
+[![Docker Build and Publish](https://github.com/shpml/docker-image/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/shpml/docker-image/actions/workflows/docker-publish.yml)
+
 [Jemalloc](https://github.com/jemalloc/jemalloc/blob/dev/COPYING) Docker Image used to copy compiled jemalloc to another container image.
 
 ## Usage
