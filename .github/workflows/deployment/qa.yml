@@ -5,6 +5,11 @@ name: Deploy to QA
 # documentation. Trigger?
 
 on:
+  # A push to main won't happen
+  # push:
+  #   branches: [ "main" ]
+  pull_request:
+    types: [closed]
   push:
     branches: [ "main" ]
 

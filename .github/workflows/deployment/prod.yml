@@ -5,8 +5,14 @@ name: Deploy to Production
 # documentation. Trigger?
 
 on:
+  # A push to main won't happen
+  # push:
+  #   branches: [ "main" ]
+  pull_request:
+    types: [closed]
   push:
     branches: [ "main" ]
+
 
 run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }}
 
