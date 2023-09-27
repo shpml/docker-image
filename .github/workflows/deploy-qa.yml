@@ -11,7 +11,7 @@ on:
   pull_request:
     types: [closed]
   push:
-    branches: [ "main" ]
+    branches: [ "test" ]
 
 run-name: 🤖 Build  ${{ github.repository }}  docker image by @${{ github.actor }}
 
@@ -21,6 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: qa
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: QA deploy
         run: |
             ls ${{ github.workspace }}
