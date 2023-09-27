@@ -1,4 +1,4 @@
-name: Context testing
+name: Another Test
 on: [push, workflow_dispatch]
 
 jobs:
