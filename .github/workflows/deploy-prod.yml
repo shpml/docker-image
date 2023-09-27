@@ -5,6 +5,7 @@ name: Deploy to Production
 # documentation. Trigger?
 
 on:
+  workflow_dispatch:
   # A push to main won't happen
   # push:
   #   branches: [ "main" ]
@@ -29,3 +30,4 @@ jobs:
         run: |
             ls ${{ github.workspace }}
       - run: echo "🍏 @${{ github.actor }} This job's status is ${{ job.status }}."
+      - run: echo "Finished at ${{ job.completed_at }}."

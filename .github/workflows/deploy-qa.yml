@@ -5,6 +5,7 @@ name: Deploy to QA
 # documentation. Trigger?
 
 on:
+  workflow_dispatch:
   # A push to main won't happen
   # push:
   #   branches: [ "main" ]
