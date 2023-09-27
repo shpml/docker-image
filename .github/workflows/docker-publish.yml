@@ -6,6 +6,7 @@ name: Docker Build and Publish
 # documentation. Trigger?
 
 on:
+  workflow_dispatch:
   # Trigger the workflow on push or pull request,
   # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
   schedule:
